@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://PranyMongoD:rootroot@cluster0.siqmt.mongodb.net/FitnessTracker?retryWrites=true&w=majority", { useNewUrlParser: true },
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://PranyMongoD:password@cluster0.siqmt.mongodb.net/FitnessTracker?retryWrites=true&w=majority", { useNewUrlParser: true },
 function(error) {
     if (error) {
         console.log(error)
@@ -25,6 +25,10 @@ app.use(require("./routes/api-routes.js"))
 // Route to exercises
 app.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, '/public/exercise.html'));
+  });
+
+  app.get("/stats", (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/stats.html'));
   });
 
 app.listen(PORT, () => {

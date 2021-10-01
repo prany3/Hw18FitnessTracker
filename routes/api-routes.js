@@ -26,9 +26,9 @@ router.post("/api/workouts", ({ body }, res) => {
 
 router.put("/api/workouts/:id", ({body, params}, res) => {
     const workout = new Workout(body)
-    workout.setTotalDuration();
+    // workout.setTotalDuration();
 
-    Workout.update(
+    Workout.findByIdAndUpdate(
         { _id: params.id },
         { $push: { exercises: body }}
       )
