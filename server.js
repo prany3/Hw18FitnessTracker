@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 app.use(express.static("public"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://PranyMongoD:password@cluster0.siqmt.mongodb.net/FitnessTracker?retryWrites=true&w=majority", { useNewUrlParser: true },
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true },
 function(error) {
     if (error) {
         console.log(error)
